@@ -10,18 +10,22 @@ let beamPosX;
 let coin  = {coinX:Math.floor(Math.random()*100),coinY:Math.floor(Math.random()*100)} 
 let {coinX,coinY} = coin; 
 let arr = [] ; 
-
+let score = 0;
  let gravity = false;
  
 function life(y)
 {
     
 
- ctx.lineWidth = 3;
+ ctx.lineWidth = 3; 
  ctx.shadowBlur = 20;
 ctx.shadowColor = "#4bcffa";
  ctx.strokeStyle = '#4bcffa';
  ctx.beginPath();
+
+
+// 10 -raza
+ // To make a full circle, the arc begins at an angle of 0 radians (0°), and ends at an angle of 2π radians (360°).
 ctx.arc(560, 20+y, 10, 0, 2 * Math.PI, false);
 ctx.stroke();
 }
@@ -35,7 +39,7 @@ ctx.fillStyle='#f1c40f';
 // desenare patrat la pozitia (40,60)
 // 75px inaltime , 75 latime 
  
-  
+   ctx.clearRect( beamPosX,0, 35, 600)
 // Platforma
 ctx.fillRect(xPos,yPos,50,50)
 
@@ -78,8 +82,7 @@ life(30);
         
           
             ctx.clearRect( beamPosX,0, 35, 600)
-            let beam = ctx.fillRect(beamPosX,0, 35, 600);
-            arr.push(beam)
+            arr.push( ctx.fillRect(beamPosX,0, 35, 600))
      
     }
 
@@ -163,8 +166,7 @@ window.addEventListener('keyup',(e)=>{
      }
 
     
-     console.log(arr);
-   
+    
      player();
  
     
